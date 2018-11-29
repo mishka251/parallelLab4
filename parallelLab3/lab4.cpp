@@ -112,8 +112,11 @@ void laba(int argc, char **argv)
 	//на 0 процессе создали массивы
 	if (rank == 0)
 	{
-		ofstream out("startArray.txt");
+		ofstream out("startValues.txt");
 		init();
+		out << "N=" << N << endl;
+		out << "R=" << R << endl;
+		out << "M=" << M << endl;
 		out << "Исходный массив" << endl;
 		printArr(arr, N, out);
 		out.close();
@@ -171,7 +174,7 @@ void init()
 template<typename T>
 void printArr(T*a, int n, ofstream& of)
 {
-	const int elementInOneLine = 10;
+	const int elementInOneLine = 25;
 	for (int i = 0; i < n; i++)
 	{
 		of << a[i] << " ";
@@ -179,5 +182,4 @@ void printArr(T*a, int n, ofstream& of)
 			of << endl;
 	}
 	of << endl;
-	of.close();
 }
